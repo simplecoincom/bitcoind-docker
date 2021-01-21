@@ -8,7 +8,8 @@ RUN useradd -r bitcoin \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ARG TARGETPLATFORM
+# This should be ARG and created based on the host image builder platform.
+ENV TARGETPLATFORM=linux/amd64
 ENV BITCOIN_VERSION=0.21.0
 
 RUN set -ex \
