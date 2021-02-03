@@ -26,7 +26,7 @@ RUN set -ex \
 # Start a new, final image to reduce size.
 FROM ubuntu:20.04 as final
 
-RUN RUN useradd -r bitcoin && \
+RUN useradd -r bitcoin && \
   apt-get update -y \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
