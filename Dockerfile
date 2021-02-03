@@ -24,9 +24,10 @@ RUN set -ex \
   && rm -rf /opt/bitcoin-${BITCOIN_VERSION}/bin/bitcoin-qt
 
 # Start a new, final image to reduce size.
-FROM debian:bullseye-slim as final
+FROM gcr.io/distroless/base-debian10 as final
 
-RUN apt-get update -y \
+RUN RUN useradd -r bitcoin && \
+  apt-get update -y \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
