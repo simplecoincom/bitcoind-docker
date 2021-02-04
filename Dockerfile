@@ -4,7 +4,7 @@ LABEL maintainer="Wesley Blake (@WesleyCharlesBlake)"
 
 RUN useradd -r bitcoin \
   && apt-get update -y \
-  && apt-get install -y curl gnupg gosu \
+  && apt-get install -y curl gnupg \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -28,6 +28,7 @@ FROM ubuntu:20.04 as final
 
 RUN useradd -r bitcoin && \
   apt-get update -y \
+  && apt-get install -y curl gosu \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
